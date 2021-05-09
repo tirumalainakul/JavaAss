@@ -13,5 +13,12 @@ abstract class CreditCard {
 	this.expirationDate = expirationDate;
     }
     
-    abstract String getCardType();
+    abstract public String getType();
+
+    public String getNumber() {
+	return cardNumber;
+    }
+    public String getErrorReason() {
+	return "";
+    }
 }

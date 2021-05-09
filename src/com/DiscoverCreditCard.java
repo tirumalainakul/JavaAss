@@ -7,7 +7,7 @@ public class DiscoverCreditCard extends CreditCard {
 	super(CreditCardNumber, HolderName, ExpirationDate);
     }
 
-    public String getCardType() {
+    public String getType() {
 	return "Discover";
     }
 }

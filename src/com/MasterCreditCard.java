@@ -7,7 +7,7 @@ public class MasterCreditCard extends CreditCard {
 	super(CreditCardNumber, HolderName, ExpirationDate);
     }
 
-    public String getCardType() {
+    public String getType() {
 	return "Master";
     }
 }

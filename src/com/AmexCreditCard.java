@@ -7,7 +7,8 @@ public class AmexCreditCard extends CreditCard {
 	super(CreditCardNumber, HolderName, ExpirationDate);
     }
 
-    public String getCardType() {
+    @Override 
+    public String getType() {
 	return "AmericanExpress";
     }
 }
