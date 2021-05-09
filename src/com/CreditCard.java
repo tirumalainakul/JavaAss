@@ -17,6 +17,6 @@ abstract class CreditCard {
 	return cardNumber;
     }
     public String getErrorReason() {
-	return "";
+	return "Valid";
     }
 }

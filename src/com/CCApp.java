@@ -1,15 +1,16 @@
 package com;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class CCApp {
     private String inFileName;
     private String outFileName;
-    List<CreditCard> creditCards;
+    ArrayList<CreditCard> creditCards;
     
     public CCApp(String InputFileName, String OutputFileName) {
 	inFileName = InputFileName;
 	outFileName = OutputFileName;
+	creditCards = new ArrayList<CreditCard>();
     }
     
     public void run() {

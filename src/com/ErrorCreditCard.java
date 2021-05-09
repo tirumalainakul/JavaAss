@@ -12,4 +12,8 @@ public class ErrorCreditCard extends CreditCard {
     public String getType() {
 	return "Error";
     }
+    @Override
+    public String getErrorReason() {
+	return ErrorReason;
+    }
 }

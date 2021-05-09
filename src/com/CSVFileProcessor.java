@@ -6,12 +6,12 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class CSVFileProcessor extends FileProcessor {
-    private List<String> inputLines;
+    private ArrayList<String> inputLines;
     private CreditCardFactory cardFactory;
 
     public CSVFileProcessor(String InputFileName, String OutputFileName) {
         super(InputFileName, OutputFileName);
-	inputLines = new ArrayList<>();
+	inputLines = new ArrayList<String>();
 	cardFactory = new CreditCardFactory();
     }
 
@@ -45,9 +45,10 @@ public class CSVFileProcessor extends FileProcessor {
 		cardString = 
 		    (cardNumber + "," + 
 		     cardType + "," + 
-		     cardErrorReason);
+		     cardErrorReason + "\n");
 		outFile.write(cardString);
 	    }
+	    outFile.close();
 	} catch (Exception e) {
 	    System.out.println("Error: Exception in writing to file");
 	}
@@ -86,10 +87,11 @@ public class CSVFileProcessor extends FileProcessor {
 		String CreditCardNumber = valuesList.get(0);
 		String ExpirationDate = valuesList.get(1);
 		String HolderName = valuesList.get(2);
-		System.out.println("Read line: " + CreditCardNumber + "  " + HolderName + "  " + ExpirationDate);
+		//		System.out.println("Read line: " + CreditCardNumber + "  " + HolderName + "  " + ExpirationDate);
 		CreditCard creditCard = 
 		    cardFactory.getCreditCard(CreditCardNumber, HolderName, ExpirationDate);
 		cards.add(creditCard);
+		//		System.out.println("Added credit card for line: " + line);
 		lineCount++;
 	    }
 	} catch (Exception e) {
