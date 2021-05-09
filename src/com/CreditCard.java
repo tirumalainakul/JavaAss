@@ -1,13 +1,11 @@
 package com;
 
-import java.time.LocalDate;
-
 abstract class CreditCard {
     private String cardNumber;
     private String holderName;
-    private LocalDate expirationDate;
+    private String expirationDate;
     
-    public CreditCard(String cardNumber, String holderName, LocalDate expirationDate) {
+    public CreditCard(String cardNumber, String holderName, String expirationDate) {
 	this.cardNumber = cardNumber;
 	this.holderName = holderName;
 	this.expirationDate = expirationDate;

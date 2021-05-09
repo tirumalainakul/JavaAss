@@ -84,8 +84,9 @@ public class CSVFileProcessor extends FileProcessor {
 		    continue;
 		}
 		String CreditCardNumber = valuesList.get(0);
-		String HolderName = valuesList.get(1);
-		String ExpirationDate = valuesList.get(2);
+		String ExpirationDate = valuesList.get(1);
+		String HolderName = valuesList.get(2);
+		System.out.println("Read line: " + CreditCardNumber + "  " + HolderName + "  " + ExpirationDate);
 		CreditCard creditCard = 
 		    cardFactory.getCreditCard(CreditCardNumber, HolderName, ExpirationDate);
 		cards.add(creditCard);

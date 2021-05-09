@@ -1,9 +1,7 @@
 package com;
 
-import java.time.LocalDate;
-
 public class AmexCreditCard extends CreditCard {
-    public AmexCreditCard(String CreditCardNumber, String HolderName, LocalDate ExpirationDate) {
+    public AmexCreditCard(String CreditCardNumber, String HolderName, String ExpirationDate) {
 	super(CreditCardNumber, HolderName, ExpirationDate);
     }
 

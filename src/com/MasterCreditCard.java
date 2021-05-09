@@ -3,7 +3,7 @@ package com;
 import java.time.LocalDate;
 
 public class MasterCreditCard extends CreditCard {
-    public MasterCreditCard(String CreditCardNumber, String HolderName, LocalDate ExpirationDate) {
+    public MasterCreditCard(String CreditCardNumber, String HolderName, String ExpirationDate) {
 	super(CreditCardNumber, HolderName, ExpirationDate);
     }
 

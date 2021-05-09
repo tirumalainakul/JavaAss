@@ -8,7 +8,10 @@ public class CreditCardFactory {
     private LocalDate checkExpirationDate(String ExpirationDate) {
 	LocalDate expDate;
 	try {
-	    expDate = LocalDate.parse(ExpirationDate, DateTimeFormatter.BASIC_ISO_DATE);
+	    System.out.println("Expiration Date: " + ExpirationDate);
+	    //	    expDate = LocalDate.parse(ExpirationDate, DateTimeFormatter.BASIC_ISO_DATE);
+	    expDate = LocalDate.parse(ExpirationDate);
+	    System.out.println("Parsing date done");
 	} catch (Exception e) {
 	    throw e;
 	}
@@ -39,27 +42,28 @@ public class CreditCardFactory {
 	    return new ErrorCreditCard(CreditCardNumber, HolderName, "Card number invalid");
 	}
 	try {
+	    System.out.println("Checking Expiration Date: " + ExpirationDate);
 	    expDate = checkExpirationDate(ExpirationDate);
+	    System.out.println("Done Expiration Date");
 	} catch (Exception e) {
 	    return new ErrorCreditCard(CreditCardNumber, HolderName, "Expiration date invalid");
 	}
 
 	int cardNumLength = Long.toString(number).length();
 	if (cardNumLength == 15) {
-	    return new AmexCreditCard(CreditCardNumber, HolderName, expDate);
+	    return new AmexCreditCard(CreditCardNumber, HolderName, ExpirationDate);
 
 	} else if (cardNumLength == 16 &&
 		   CreditCardNumber.charAt(0) == '5') {
-	    return new MasterCreditCard(CreditCardNumber, HolderName, expDate);
+	    return new MasterCreditCard(CreditCardNumber, HolderName, ExpirationDate);
 
 	} else if (cardNumLength == 16 &&
 		   CreditCardNumber.charAt(0) == '6') {
-	    return new DiscoverCreditCard(CreditCardNumber, HolderName, expDate);
+	    return new DiscoverCreditCard(CreditCardNumber, HolderName, ExpirationDate);
 
 	} else if ((cardNumLength == 13 || cardNumLength == 16) &&
 		   CreditCardNumber.charAt(0) == '4') {
-	    return new VisaCreditCard(CreditCardNumber, HolderName, expDate);
-
+	    return new VisaCreditCard(CreditCardNumber, HolderName, ExpirationDate);
 	} 
 
 	return new ErrorCreditCard(CreditCardNumber, HolderName, "Credit card type invalid");
